@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2011-2012 Jassycoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
 #include "headers.h"
@@ -66,7 +66,7 @@ void Shutdown(void* parg)
         delete pwalletMain;
         CreateThread(ExitTimeout, NULL);
         Sleep(50);
-        printf("Litecoin exiting\n\n");
+        printf("Jassycoin exiting\n\n");
         fExit = true;
         exit(0);
     }
@@ -164,7 +164,7 @@ bool AppInit2(int argc, char* argv[])
     if (mapArgs.count("-?") || mapArgs.count("--help"))
     {
         string strUsage = string() +
-          _("Litecoin version") + " " + FormatFullVersion() + "\n\n" +
+          _("Jassycoin version") + " " + FormatFullVersion() + "\n\n" +
           _("Usage:") + "\t\t\t\t\t\t\t\t\t\t\n" +
             "  litecoind [options]                   \t  " + "\n" +
             "  litecoind [options] <command> [params]\t  " + _("Send command to -server or litecoind") + "\n" +
@@ -252,7 +252,7 @@ bool AppInit2(int argc, char* argv[])
     }
 
     fTestNet = GetBoolArg("-testnet");
-    // Litecoin: Keep irc seeding on by default for now.
+    // Jassycoin: Keep irc seeding on by default for now.
 //    if (fTestNet)
 //    {
         SoftSetBoolArg("-irc", true);
@@ -316,7 +316,7 @@ bool AppInit2(int argc, char* argv[])
     if (!fDebug && !pszSetDataDir[0])
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("Litecoin version %s\n", FormatFullVersion().c_str());
+    printf("Jassycoin version %s\n", FormatFullVersion().c_str());
     printf("Default data directory %s\n", GetDefaultDataDir().c_str());
 
     if (GetBoolArg("-loadblockindextest"))
@@ -334,7 +334,7 @@ bool AppInit2(int argc, char* argv[])
     static boost::interprocess::file_lock lock(strLockFile.c_str());
     if (!lock.try_lock())
     {
-        wxMessageBox(strprintf(_("Cannot obtain a lock on data directory %s.  Litecoin is probably already running."), GetDataDir().c_str()), "Litecoin");
+        wxMessageBox(strprintf(_("Cannot obtain a lock on data directory %s.  Jassycoin is probably already running."), GetDataDir().c_str()), "Jassycoin");
         return false;
     }
 
@@ -371,12 +371,12 @@ bool AppInit2(int argc, char* argv[])
         if (nLoadWalletRet == DB_CORRUPT)
             strErrors << _("Error loading wallet.dat: Wallet corrupted") << "\n";
         else if (nLoadWalletRet == DB_TOO_NEW)
-            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Litecoin") << "\n";
+            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Jassycoin") << "\n";
         else if (nLoadWalletRet == DB_NEED_REWRITE)
         {
-            strErrors << _("Wallet needed to be rewritten: restart Litecoin to complete") << "\n";
+            strErrors << _("Wallet needed to be rewritten: restart Jassycoin to complete") << "\n";
             printf("%s", strErrors.str().c_str());
-            wxMessageBox(strErrors.str(), "Litecoin", wxOK | wxICON_ERROR);
+            wxMessageBox(strErrors.str(), "Jassycoin", wxOK | wxICON_ERROR);
             return false;
         }
         else
@@ -418,7 +418,7 @@ bool AppInit2(int argc, char* argv[])
 
     if (!strErrors.str().empty())
     {
-        wxMessageBox(strErrors.str(), "Litecoin", wxOK | wxICON_ERROR);
+        wxMessageBox(strErrors.str(), "Jassycoin", wxOK | wxICON_ERROR);
         return false;
     }
 
@@ -474,7 +474,7 @@ bool AppInit2(int argc, char* argv[])
         addrProxy = CService(mapArgs["-proxy"], 9050);
         if (!addrProxy.IsValid())
         {
-            wxMessageBox(_("Invalid -proxy address"), "Litecoin");
+            wxMessageBox(_("Invalid -proxy address"), "Jassycoin");
             return false;
         }
     }
@@ -538,18 +538,18 @@ bool AppInit2(int argc, char* argv[])
     {
         if (!ParseMoney(mapArgs["-paytxfee"], nTransactionFee))
         {
-            wxMessageBox(_("Invalid amount for -paytxfee=<amount>"), "Litecoin");
+            wxMessageBox(_("Invalid amount for -paytxfee=<amount>"), "Jassycoin");
             return false;
         }
         if (nTransactionFee > 0.25 * COIN)
-            wxMessageBox(_("Warning: -paytxfee is set very high.  This is the transaction fee you will pay if you send a transaction."), "Litecoin", wxOK | wxICON_EXCLAMATION);
+            wxMessageBox(_("Warning: -paytxfee is set very high.  This is the transaction fee you will pay if you send a transaction."), "Jassycoin", wxOK | wxICON_EXCLAMATION);
     }
 
     if (mapArgs.count("-mininput"))
     {
         if (!ParseMoney(mapArgs["-mininput"], nMinimumInputValue))
         {
-            wxMessageBox(_("Invalid amount for -mininput=<amount>"), "Litecoin");
+            wxMessageBox(_("Invalid amount for -mininput=<amount>"), "Jassycoin");
             return false;
         }
     }
@@ -563,7 +563,7 @@ bool AppInit2(int argc, char* argv[])
     RandAddSeedPerfmon();
 
     if (!CreateThread(StartNode, NULL))
-        wxMessageBox(_("Error: CreateThread(StartNode) failed"), "Litecoin");
+        wxMessageBox(_("Error: CreateThread(StartNode) failed"), "Jassycoin");
 
     if (fServer)
         CreateThread(ThreadRPCServer, NULL);

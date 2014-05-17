@@ -1,1 +1,1 @@
-Official Litecoin repository has moved to: https://github.com/litecoin-project/litecoin
+Official Jassycoin repository has moved to: https://github.com/litecoin-project/litecoin

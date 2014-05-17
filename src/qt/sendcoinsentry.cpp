@@ -22,7 +22,7 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
 #endif
 
 #if QT_VERSION >= 0x040700
-    ui->payTo->setPlaceholderText(tr("Enter a Litecoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)"));
+    ui->payTo->setPlaceholderText(tr("Enter a Jassycoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)"));
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
     setFocusPolicy(Qt::TabFocus);

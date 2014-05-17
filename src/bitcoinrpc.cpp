@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2011-2012 Jassycoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
 
@@ -266,7 +266,7 @@ Value getconnectioncount(const Array& params, bool fHelp)
 }
 
 
-// Litecoin: Return average network hashes per second based on last number of blocks.
+// Jassycoin: Return average network hashes per second based on last number of blocks.
 int GetNetworkHashPS(int lookup) {
     if (pindexBest == NULL)
         return 0;
@@ -709,7 +709,7 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             "getreceivedbyaddress <litecoinaddress> [minconf=1]\n"
             "Returns the total amount received by <litecoinaddress> in transactions with at least [minconf] confirmations.");
 
-    // Litecoin address
+    // Jassycoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())
@@ -1819,10 +1819,10 @@ Value getworkex(const Array& params, bool fHelp)
         );
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "Litecoin is not connected!");
+        throw JSONRPCError(-9, "Jassycoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "Litecoin is downloading blocks...");
+        throw JSONRPCError(-10, "Jassycoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;
@@ -1951,10 +1951,10 @@ Value getwork(const Array& params, bool fHelp)
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "Litecoin is not connected!");
+        throw JSONRPCError(-9, "Jassycoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "Litecoin is downloading blocks...");
+        throw JSONRPCError(-10, "Jassycoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;
@@ -2063,10 +2063,10 @@ Value getmemorypool(const Array& params, bool fHelp)
     if (params.size() == 0)
     {
         if (vNodes.empty())
-            throw JSONRPCError(-9, "Litecoin is not connected!");
+            throw JSONRPCError(-9, "Jassycoin is not connected!");
 
         if (IsInitialBlockDownload())
-            throw JSONRPCError(-10, "Litecoin is downloading blocks...");
+            throw JSONRPCError(-10, "Jassycoin is downloading blocks...");
 
         static CReserveKey reservekey(pwalletMain);
 
@@ -2418,7 +2418,7 @@ bool HTTPAuthorized(map<string, string>& mapHeaders)
 }
 
 //
-// JSON-RPC protocol.  Litecoin speaks version 1.0 for maximum compatibility,
+// JSON-RPC protocol.  Jassycoin speaks version 1.0 for maximum compatibility,
 // but uses JSON-RPC 1.1/2.0 standards for parts of the 1.0 standard that were
 // unspecified (HTTP errors and contents of 'error').
 //

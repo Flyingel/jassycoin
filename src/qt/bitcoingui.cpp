@@ -66,7 +66,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     notificator(0)
 {
     resize(850, 550);
-    setWindowTitle(tr("Litecoin Wallet"));
+    setWindowTitle(tr("Jassycoin Wallet"));
 #ifndef Q_WS_MAC
     setWindowIcon(QIcon(":icons/bitcoin"));
 #else
@@ -240,16 +240,16 @@ void BitcoinGUI::createActions()
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
     aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About %1").arg(qApp->applicationName()), this);
-    aboutAction->setToolTip(tr("Show information about Litecoin"));
+    aboutAction->setToolTip(tr("Show information about Jassycoin"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for Litecoin"));
+    optionsAction->setToolTip(tr("Modify configuration options for Jassycoin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
-    openBitcoinAction = new QAction(QIcon(":/icons/bitcoin"), tr("Open &Litecoin"), this);
-    openBitcoinAction->setToolTip(tr("Show the Litecoin window"));
+    openBitcoinAction = new QAction(QIcon(":/icons/bitcoin"), tr("Open &Jassycoin"), this);
+    openBitcoinAction->setToolTip(tr("Show the Jassycoin window"));
     exportAction = new QAction(QIcon(":/icons/export"), tr("&Export..."), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet"), this);
@@ -393,7 +393,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("Litecoin client"));
+    trayIcon->setToolTip(tr("Jassycoin client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -463,7 +463,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Litecoin network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Jassycoin network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count)

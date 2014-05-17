@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2011-2012 Jassycoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
 #include "headers.h"
@@ -775,7 +775,7 @@ void ThreadOneMessageBox(string strMessage)
     if (fMessageBoxOpen)
         return;
     fMessageBoxOpen = true;
-    ThreadSafeMessageBox(strMessage, "Litecoin", wxOK | wxICON_EXCLAMATION);
+    ThreadSafeMessageBox(strMessage, "Jassycoin", wxOK | wxICON_EXCLAMATION);
     fMessageBoxOpen = false;
 }
 
@@ -810,12 +810,12 @@ string MyGetSpecialFolderPath(int nFolder, bool fCreate)
 
 string GetDefaultDataDir()
 {
-    // Windows: C:\Documents and Settings\username\Application Data\Litecoin
-    // Mac: ~/Library/Application Support/Litecoin
+    // Windows: C:\Documents and Settings\username\Application Data\Jassycoin
+    // Mac: ~/Library/Application Support/Jassycoin
     // Unix: ~/.litecoin
 #ifdef WIN32
     // Windows
-    return MyGetSpecialFolderPath(CSIDL_APPDATA, true) + "\\Litecoin";
+    return MyGetSpecialFolderPath(CSIDL_APPDATA, true) + "\\Jassycoin";
 #else
     char* pszHome = getenv("HOME");
     if (pszHome == NULL || strlen(pszHome) == 0)
@@ -827,7 +827,7 @@ string GetDefaultDataDir()
     // Mac
     strHome += "Library/Application Support/";
     filesystem::create_directory(strHome.c_str());
-    return strHome + "Litecoin";
+    return strHome + "Jassycoin";
 #else
     // Unix
     return strHome + ".litecoin";
@@ -1030,7 +1030,7 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
         int64 nMedian = vTimeOffsets.median();
         std::vector<int64> vSorted = vTimeOffsets.sorted();
         // Only let other nodes change our time by so much
-        if (abs64(nMedian) < 35 * 60) // Litecoin: changed maximum adjust to 35 mins to avoid letting peers change our time too much in case of an attack.
+        if (abs64(nMedian) < 35 * 60) // Jassycoin: changed maximum adjust to 35 mins to avoid letting peers change our time too much in case of an attack.
         {
             nTimeOffset = nMedian;
         }
@@ -1050,10 +1050,10 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
                 if (!fMatch)
                 {
                     fDone = true;
-                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Litecoin will not work properly.");
+                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Jassycoin will not work properly.");
                     strMiscWarning = strMessage;
                     printf("*** %s\n", strMessage.c_str());
-                    boost::thread(boost::bind(ThreadSafeMessageBox, strMessage+" ", string("Litecoin"), wxOK | wxICON_EXCLAMATION, (wxWindow*)NULL, -1, -1));
+                    boost::thread(boost::bind(ThreadSafeMessageBox, strMessage+" ", string("Jassycoin"), wxOK | wxICON_EXCLAMATION, (wxWindow*)NULL, -1, -1));
                 }
             }
         }

@@ -167,8 +167,8 @@ MainOptionsPage::MainOptionsPage(QWidget *parent):
 {
     QVBoxLayout *layout = new QVBoxLayout();
 
-    bitcoin_at_startup = new QCheckBox(tr("&Start Litecoin on window system startup"));
-    bitcoin_at_startup->setToolTip(tr("Automatically start Litecoin after the computer is turned on"));
+    bitcoin_at_startup = new QCheckBox(tr("&Start Jassycoin on window system startup"));
+    bitcoin_at_startup->setToolTip(tr("Automatically start Jassycoin after the computer is turned on"));
     layout->addWidget(bitcoin_at_startup);
 
 #ifndef Q_WS_MAC
@@ -178,7 +178,7 @@ MainOptionsPage::MainOptionsPage(QWidget *parent):
 #endif
 
     map_port_upnp = new QCheckBox(tr("Map port using &UPnP"));
-    map_port_upnp->setToolTip(tr("Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled."));
+    map_port_upnp->setToolTip(tr("Automatically open the Jassycoin client port on the router. This only works when your router supports UPnP and it is enabled."));
     layout->addWidget(map_port_upnp);
 
 #ifndef Q_WS_MAC
@@ -188,7 +188,7 @@ MainOptionsPage::MainOptionsPage(QWidget *parent):
 #endif
 
     connect_socks4 = new QCheckBox(tr("&Connect through SOCKS4 proxy:"));
-    connect_socks4->setToolTip(tr("Connect to the Litecoin network through a SOCKS4 proxy (e.g. when connecting through Tor)"));
+    connect_socks4->setToolTip(tr("Connect to the Jassycoin network through a SOCKS4 proxy (e.g. when connecting through Tor)"));
     layout->addWidget(connect_socks4);
 
     QHBoxLayout *proxy_hbox = new QHBoxLayout();

@@ -176,9 +176,9 @@ int main(int argc, char *argv[])
     app.setOrganizationName("Bitcoin");
     app.setOrganizationDomain("bitcoin.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        app.setApplicationName("Litecoin-Qt-testnet");
+        app.setApplicationName("Jassycoin-Qt-testnet");
     else
-        app.setApplicationName("Litecoin-Qt");
+        app.setApplicationName("Jassycoin-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;
