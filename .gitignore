@@ -1,0 +1,23 @@
+src/*.exe
+src/litecoin
+src/litecoind
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.bitcoin
+#compilation and Qt preprocessor part
+*.qm
+Makefile
+build
+Info.plist
+#resources cpp
+qrc_*.cpp
+#qt creator
+*.pro.user
+#mac specific
+Litecoin-Qt.*
+.DS_Store
