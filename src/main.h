@@ -38,7 +38,7 @@ static const int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const int64 COIN = 100000000;
 static const int64 CENT = 1000000;
-static const int64 MIN_TX_FEE = 10000000; // Jassycoin: minimum transaction fee of 0.1 LTC
+static const int64 MIN_TX_FEE = 10000000; // Jassycoin: minimum transaction fee of 0.1 JYC
 static const int64 MIN_RELAY_TX_FEE = MIN_TX_FEE; // Jassycoin: minimum relay transaction fee same as minimum transaction fee.
 static const int64 MAX_MONEY = 84000000 * COIN; // Jassycoin: maximum of 840k coins
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
